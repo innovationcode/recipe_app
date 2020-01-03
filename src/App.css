@@ -40,11 +40,41 @@
 /* *************Recipes.js style *********** */
 
 .recipes-box {
-    background: rgb(154, 216, 208);
+    background: rgb(247, 247, 247);
     padding-bottom: 2rem;
     border-radius: 5px;
-    box-shadow: -1px 2px 34px -13px rgba(18, 114, 34, 0.75);
+    box-shadow: 2px 2px 2px 2px rgba(252, 1, 1, 0.3);
+    /* box-shadow: 0px 0px 0px 1px rgba(25, 107, 80, 0.75); */
     border-radius: 10px;
-    text-align: left;
+    text-align: center;
     overflow: hidden;
+    margin : 0px 0.6rem;
+    margin-bottom:3rem;
+}
+
+
+.recipe-btn {
+    border: 1px solid rgb(219, 166, 166);
+    border-radius: 10px !important;
+    background: rgb(219, 166, 166);
+    padding: 0.4rem 0.6rem;
+    margin: 0 0.2rem;
+    border-radius: 1px;
+    font-size: 0.8rem;
+    font-weight: bold !important;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-left: 0.7rem;
+    box-shadow: 2px 2px 2px 2px rgba(109, 99, 99, 0.3);
+    letter-spacing: 1px;
+}
+
+.recipe-btn
+  a:link, a:visited {
+    text-decoration: none;
+    color: black;
+}
+.recipe-img{
+  width: 100%;
+  border-radius: 10px;
 }
