@@ -14,7 +14,7 @@ class App extends Component{
   getRecipe = async (event) => {
       event.preventDefault();
       const recipeName = event.target.elements.recipe.value;
-      const API_CALL = await fetch(`https://api.edamam.com/search?q=paneer&app_id=${API_ID}&app_key=${API_KEY}&from=0&to=10&calories=591-722&health=alcohol-free`);
+      const API_CALL = await fetch(`https://api.edamam.com/search?q=${recipeName}&app_id=${API_ID}&app_key=${API_KEY}&from=0&to=10&calories=591-722&health=alcohol-free`);
       const data = await API_CALL.json();
 
       //console.log("getRecipe......", data.hits);
@@ -35,10 +35,12 @@ class App extends Component{
         <Form getRecipe = {this.getRecipe}/>
 
         {this.state.recipes.map((recipe) => {
-            return (<div>
-                      <p key = {recipe.recipe.label}> {recipe.recipe.label}</p>
-                      <img src = {recipe.recipe.image}/>
-                    </div>
+            return (
+                      <div key = {recipe.recipe.label}>
+                          <h3> {recipe.recipe.label}</h3>
+                          <img src = {recipe.recipe.image}/>
+                          <p><a href = {recipe.recipe.url} target = "_blank">Link to recipe</a></p>
+                      </div>
                     )
         })}
       </div>
