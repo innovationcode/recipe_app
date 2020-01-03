@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Form from './components/Form.js'
+import Recipes from './components/Recipes.js'
 
 const API_ID = process.env.REACT_APP_API_ID;
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -14,7 +15,7 @@ class App extends Component{
   getRecipe = async (event) => {
       event.preventDefault();
       const recipeName = event.target.elements.recipe.value;
-      const API_CALL = await fetch(`https://api.edamam.com/search?q=${recipeName}&app_id=${API_ID}&app_key=${API_KEY}&from=0&to=10&calories=591-722&health=alcohol-free`);
+      const API_CALL = await fetch(`https://api.edamam.com/search?q=${recipeName}&app_id=${API_ID}&app_key=${API_KEY}&from=0&to=30&calories=591-722&health=alcohol-free`);
       const data = await API_CALL.json();
 
       //console.log("getRecipe......", data.hits);
@@ -33,16 +34,10 @@ class App extends Component{
         </header>
 
         <Form getRecipe = {this.getRecipe}/>
-
-        {this.state.recipes.map((recipe) => {
-            return (
-                      <div key = {recipe.recipe.label}>
-                          <h3> {recipe.recipe.label}</h3>
-                          <img src = {recipe.recipe.image}/>
-                          <p><a href = {recipe.recipe.url} target = "_blank">Link to recipe</a></p>
-                      </div>
-                    )
-        })}
+        <Recipes 
+            recipes = {this.state.recipes}
+        />
+        
       </div>
     );
   }
