@@ -16,19 +16,23 @@ class Recipe extends React.Component {
         //console.log("recipeName   :   " ,recipeName)
         const API_CALL = await fetch(`https://api.edamam.com/search?q=${recipeName}&app_id=${API_ID}&app_key=${API_KEY}&from=0&to=30&calories=591-722&health=alcohol-free`);
         const data = await API_CALL.json();
-        console.log("Recipe  :   ", data.hits); //array return 
+        console.log("Recipe  :   ", data.hits[0]); //array return 
         this.setState({
-            activeRecipe : data.hits[0],
+            activeRecipe : data.hits[0].recipe,
         })
-        console.log("getRecipe......", this.state.activeRecipe);
+        //console.log("activeRecipe  :  ", this.state.activeRecipe.recipe.image);
   }
   
   render() {
-    console.log(this.props.location.state)
-
+    const activeRecipe = this.state.activeRecipe;
+    console.log("active render() ", activeRecipe.image)
+    
     return (
         <div className="container">
-            <h1>Recipe</h1>
+            <div className = "active-recipe">
+                <img className = "active-recipe-img" src = {activeRecipe.image} />
+
+            </div>
         </div>
     );
   }
