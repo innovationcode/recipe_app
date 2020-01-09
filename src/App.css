@@ -78,3 +78,15 @@
   width: 100%;
   border-radius: 10px;
 }
+
+
+/************** ACTIVE RECIPE STYLE ****************/
+
+.active-recipe {
+  margin: 0 auto;
+  width: 60%;
+}
+
+.active-recipe-img {
+  height: 500px !important;
+}

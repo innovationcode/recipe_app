@@ -19,8 +19,7 @@ const Recipes = (props) => (
                                         state: { recipe: recipe.recipe.label }
                                 }}> View &nbsp; Recipe </Link>
                             </button> 
-                            
-                            <label style = {{paddingTop : "16px", marginBottom :"0px"}}>Total Calories : {Math.floor(recipe.recipe.calories)}</label>
+                            <p style = {{paddingTop : "16px", marginBottom :"0px"}}>Total Calories : {Math.floor(recipe.recipe.calories)} </p>
 
                         </div>
                     </div>
